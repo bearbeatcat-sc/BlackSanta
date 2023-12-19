@@ -18,6 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private float m_lerpAmount = 0.7f;
 
     /// <summary>
+    /// アニメーター
+    /// </summary>
+    [SerializeField]
+    private Animator m_animator = null;
+
+    /// <summary>
     /// 前フレームのマウス位置
     /// </summary>
     private Vector2 m_previousMousePosition = Vector2.zero;
@@ -27,9 +33,15 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private Vector2 m_targetPosition = Vector2.zero;
 
+    /// <summary>
+    /// 初期のスケール
+    /// </summary>
+    private Vector3 m_initScale = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_initScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -57,17 +69,20 @@ public class PlayerMovement : MonoBehaviour
         {
             value.y += m_MoveSpeed;
         }
-        if(aKey.isPressed)
-        {
-            value.x -= m_MoveSpeed;
-        }
-        if(sKey.isPressed)
+        else if (sKey.isPressed)
         {
             value.y -= m_MoveSpeed;
         }
-        if (dKey.isPressed)
+
+        if (aKey.isPressed)
+        {
+            value.x -= m_MoveSpeed;
+            Flip(true);
+        }
+        else if (dKey.isPressed)
         {
             value.x += m_MoveSpeed;
+            Flip(false);
         }
 
         var currentPosition = m_targetPosition;
@@ -75,5 +90,25 @@ public class PlayerMovement : MonoBehaviour
         currentPosition.y += value.y * Time.deltaTime;
 
         m_targetPosition = currentPosition;
+        PlayMoveAnimation(value.magnitude > 0.0f);
+    }
+
+    /// <summary>
+    /// 反転
+    /// </summary>
+    private void Flip(bool isLeft)
+    {
+        var scale = transform.localScale;
+        scale.x = isLeft ? m_initScale.x * -1 : m_initScale.x;
+        transform.localScale = scale;
+    }
+
+    /// <summary>
+    /// 移動アニメーションの再生
+    /// </summary>
+    private void PlayMoveAnimation(bool isMove)
+    {
+        if (!m_animator) return;
+        m_animator.SetBool("IsMove", isMove);
     }
 }
