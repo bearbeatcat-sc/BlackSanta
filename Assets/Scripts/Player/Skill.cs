@@ -16,9 +16,26 @@ namespace Assets.Scripts.Player
         private int m_MaxLevel = 5;
 
         /// <summary>
+        /// 与えるダメージ
+        /// </summary>
+        [SerializeField]
+        protected int m_damage = 1;
+
+        /// <summary>
+        /// ノックバック力
+        /// </summary>
+        [SerializeField]
+        protected float m_knockBackPower = 1.0f;
+
+        /// <summary>
         /// 現在のレベル
         /// </summary>
-        private int m_currentLevel = 0;
+        protected int m_currentLevel = 0;
+
+        /// <summary>
+        /// プレイヤースキル
+        /// </summary>
+        protected PlayerSkill m_playerSkill = null;
 
         /// <summary>
         /// 攻撃
@@ -35,6 +52,7 @@ namespace Assets.Scripts.Player
         /// </summary>
         public abstract void StatusUp();
 
+
         /// <summary>
         /// レベルアップ
         /// </summary>
@@ -44,16 +62,14 @@ namespace Assets.Scripts.Player
             StatusUp();
         }
 
-        // Start is called before the first frame update
-        private void Start()
+        /// <summary>
+        /// プレイヤースキルのセット
+        /// </summary>
+        /// <param name="playerSkill">プレイヤースキル</param>
+        public void SetPlayerSkill(PlayerSkill playerSkill)
         {
-            Initialize();
+            m_playerSkill = playerSkill;
         }
 
-        // Update is called once per frame
-        private void Update()
-        {
-            Attack();
-        }
     }
 }

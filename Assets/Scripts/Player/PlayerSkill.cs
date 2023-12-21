@@ -1,91 +1,94 @@
 using Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour
 {
     /// <summary>
-    /// スキルの最大数
+    ///  スキルタイプ
+    /// </summary>
+    public enum SkillType
+    {
+        Bell,
+        CandyCane,
+    }
+
+    /// <summary>
+    /// メインスキル
     /// </summary>
     [SerializeField]
-    private int m_maxSkilCount = 3;
+    private Skill m_mainSkill = null;
+
+    /// <summary>
+    /// プレイヤー移動コンポーネント
+    /// </summary>
+    [SerializeField]
+    private PlayerMovement m_playerMovement = null;
 
     /// <summary>
     /// スキルリスト
     /// </summary>
+    [SerializeField]
     private Skill[] m_skill = null;
 
     /// <summary>
-    /// 取得しているスキル数
+    /// 移動方向のベクトルの取得
     /// </summary>
-    private int m_skillCount = 0;
+    /// <returns>移動方向のベクトル</returns>
+    public Vector2 GetPlayerMoveVec()
+    {
+        if (!m_playerMovement) return Vector2.zero;
+
+        return m_playerMovement.GetMoveVec();
+    }
+
+    /// <summary>
+    /// プレイヤーの位置の取得
+    /// </summary>
+    /// <returns>プレイヤーの位置</returns>
+    public Vector2 GetPlayerPosition()
+    {
+        return transform.position;
+    }
 
     /// <summary>
     /// スキルの追加
     /// </summary>
-    /// <param name="skill">追加するスキル</param>
-    public void AddSkill(Skill skill)
+    /// <param name="skillType">スキルの種類</param>
+    public void AddSkill(SkillType skillType)
     {
-        if(m_skillCount >= m_maxSkilCount - 1)
-        {            
-            return;
-        }
+        var skillIndex = (int)skillType;
+        var skill = m_skill[skillIndex];
 
-        var levelUpSkill = GetCanLevelUpSkill(skill);
-
-        if(levelUpSkill)
-        {
-            levelUpSkill.LevelUp();
-            return;
-        }
-
-        m_skill[m_skillCount] = skill;
-        m_skillCount++;
+        skill.Initialize();
+        skill.LevelUp();
+        skill.SetPlayerSkill(this);
     }
 
-    // Start is called before the first frame update
     private void Start()
     {
-        m_skill = new Skill[m_maxSkilCount];
+        m_mainSkill.SetPlayerSkill(this);
+        m_mainSkill.Initialize();
+        m_mainSkill.LevelUp();
+
+        AddSkill(SkillType.Bell);
+        AddSkill(SkillType.CandyCane);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        
-    }
+        m_mainSkill.Attack();
 
-    /// <summary>
-    /// レベルアップできるスキルの取得
-    /// </summary>
-    /// <param name="setSkill">設定するスキル</param>
-    /// <returns>レベルアップできるスキル</returns>
-    private Skill GetCanLevelUpSkill(Skill setSkill)
-    {
-        for(int i = 0; i < m_skill.Length; i++)
-        {
+        for(int i = 0; i < m_skill.Length; i++) 
+        { 
             var skill = m_skill[i];
-           
-            if(skill.GetType() == setSkill.GetType())
-            {
-                return skill;
-            }
-        }
+            if (!skill) continue;
 
-        return null;
-    }
-
-    /// <summary>
-    /// スキルの初期化
-    /// </summary>
-    private void InitializeSkill()
-    {
-        if (m_skill == null) return;
-
-        for(int i = 0; m_skill.Length > 0; i++)
-        {
-            m_skill[i] = null;
+            skill.Attack();
         }
     }
+
 }

@@ -1,3 +1,5 @@
+using Assets.Scripts;
+using Assets.Scripts.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +17,12 @@ public abstract class BaseEnemy : MonoBehaviour
     /// </summary>
     [SerializeField]
     private int m_maxHp = 10;
+
+    /// <summary>
+    /// ノックバック
+    /// </summary>
+    [SerializeField]
+    private KnockBackComponent knockBack = null;
 
     /// <summary>
     /// 現在のHP
@@ -84,5 +92,39 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Move();
         Attack();
+    }
+
+    /// <summary>
+    /// ノックバック処理
+    /// </summary>
+    /// <param name="vec">ベクトル</param>
+    /// <param name="power">力</param>
+    private void KnockBack(Vector2 vec, float power)
+    {
+        if (!knockBack) return;
+
+        knockBack.SetKnockBack(vec, power);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // 攻撃判定
+        if(collision.tag == "Attack")
+        {
+            var gameObject = collision.gameObject;
+            var skill = gameObject.GetComponent<IDamagable>();
+
+            if (skill == null) return;
+            var damege = skill.GetDamage();
+            var knockBackPower = skill.GetKnockBackPower();
+
+            Damage(damege);
+            var currentPos = transform.position;
+            var skillPos = gameObject.transform.position;
+            var vec = currentPos - skillPos;
+            vec.z = 0;
+            vec.Normalize();
+            KnockBack(vec, knockBackPower);
+        }
     }
 }

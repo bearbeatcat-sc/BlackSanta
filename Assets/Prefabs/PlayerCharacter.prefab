@@ -14,6 +14,10 @@ GameObject:
   - component: {fileID: 1398391016558314720}
   - component: {fileID: 2744099335681905946}
   - component: {fileID: 8540485158882655748}
+  - component: {fileID: 2007875083578318441}
+  - component: {fileID: 397250714359330843}
+  - component: {fileID: 420723012199221605}
+  - component: {fileID: 1813420722187607874}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -34,7 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2079802900836137423
 MonoBehaviour:
@@ -48,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600ef47c9ca45ca43be1d91354d758cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MoveSpeed: 10
+  m_MoveSpeed: 6
   m_lerpAmount: 0.03
   m_animator: {fileID: 2744099335681905946}
   m_flipComponent: {fileID: 8540485158882655748}
@@ -93,12 +97,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f226662d33a70fe4eab86ad944a1476e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6bcb03523383d294e95173ab71d50253, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -116,7 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7b981cfdc4c8446913a16500d3e77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxSkilCount: 3
+  m_mainSkill: {fileID: 2007875083578318441}
+  m_playerMovement: {fileID: 2079802900836137423}
+  m_skill:
+  - {fileID: 420723012199221605}
+  - {fileID: 1813420722187607874}
 --- !u!95 &2744099335681905946
 Animator:
   serializedVersion: 5
@@ -150,3 +158,100 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a73f4cc581e9d0429383cf0bd08bc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2007875083578318441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065320352630049436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d064690eae1cff40b9e0f17413437bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxLevel: 5
+  m_damage: 1
+  m_knockBackPower: 6
+  m_whipRate: 1
+  m_whipColliderObject: {fileID: 2198544320192709491, guid: 19096468c0cca2a49bc14153c1cb7deb, type: 3}
+--- !u!61 &397250714359330843
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065320352630049436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 1.6, y: 1.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6, y: 1.6}
+  m_EdgeRadius: 0
+--- !u!114 &420723012199221605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065320352630049436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11592ad43599f849af89d1d7b997af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxLevel: 5
+  m_damage: 1
+  m_knockBackPower: 3
+  m_rotateSpeed: 30
+  m_range: 3
+  m_bellObject: {fileID: 6265794490582973110, guid: ad1221292af73754894d40d30d46ba72, type: 3}
+--- !u!114 &1813420722187607874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7065320352630049436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6ae462004429248a0563ccd9ac0537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxLevel: 5
+  m_damage: 1
+  m_knockBackPower: 1
+  m_candyCaneObject: {fileID: 8644734277656269422, guid: 26039c0e948d97441a7f9c15bd3693bf, type: 3}
+  m_generateRate: 1

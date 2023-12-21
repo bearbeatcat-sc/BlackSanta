@@ -35,6 +35,20 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private Vector2 m_targetPosition = Vector2.zero;
 
+    /// <summary>
+    /// 左向きか
+    /// </summary>
+    private bool m_isLeft = false;
+
+    /// <summary>
+    /// 移動方向のベクトルの取得
+    /// </summary>
+    /// <returns>移動方向のベクトル</returns>
+    public Vector2 GetMoveVec()
+    {
+        return m_isLeft ? Vector2.left : Vector2.right;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,11 +89,13 @@ public class PlayerMovement : MonoBehaviour
         {
             value.x -= m_MoveSpeed;
             m_flipComponent.Flip(true);
+            m_isLeft = true;
         }
         else if (dKey.isPressed)
         {
             value.x += m_MoveSpeed;
             m_flipComponent.Flip(false);
+            m_isLeft = false;
         }
 
         var currentPosition = m_targetPosition;

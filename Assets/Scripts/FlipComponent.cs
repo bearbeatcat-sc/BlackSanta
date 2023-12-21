@@ -16,7 +16,7 @@ namespace Assets.Scripts
         private Vector3 m_initScale = Vector3.zero;
 
         /// <summary>
-        /// 
+        /// 初期スケールの設定
         /// </summary>
         /// <param name="initScale">初期スケール</param>
         public void SetInitScale(Vector3 initScale)
