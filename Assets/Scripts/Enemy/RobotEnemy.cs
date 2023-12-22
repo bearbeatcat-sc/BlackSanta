@@ -25,6 +25,20 @@ namespace Assets.Scripts.Enemy
         public override void Initialize()
         {
             m_flipComponent.SetInitScale(transform.localScale);
+            var paramTable = EnemyParamsTable.Instance;
+
+            Debug.Assert(paramTable != null, "paramTable is null.");
+
+            var roboParamTable = paramTable.m_roboEnemyParams;
+            var attack = roboParamTable.m_attack;
+            var knockBackPower = roboParamTable.m_knockBackPower;
+            var moveSpeed = roboParamTable.m_moveSpeed;
+            var maxHP = roboParamTable.m_maxHP;
+
+            m_moveSpeed = moveSpeed;
+            m_attack = attack;
+            m_knockBackPower = knockBackPower;
+            m_maxHp = maxHP;
         }
 
         public override void Move()

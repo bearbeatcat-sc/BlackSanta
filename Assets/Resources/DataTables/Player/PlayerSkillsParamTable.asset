@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e0d2ca5ba123b947a092ffd838b7192, type: 3}
+  m_Name: PlayerSkillsParamTable
+  m_EditorClassIdentifier: 
+  m_whipSkillParams:
+    m_whipSkillLevelParams:
+    - m_whipRate: 1
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_whipRate: 1
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_whipRate: 1
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_whipRate: 1
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_whipRate: 1
+      m_knockBackPower: 1
+      m_Damage: 1
+  m_bellSkillParams:
+    m_bellSkillLevelParams:
+    - m_rotateSpeed: 30
+      m_range: 3
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_rotateSpeed: 40
+      m_range: 3
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_rotateSpeed: 50
+      m_range: 3
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_rotateSpeed: 60
+      m_range: 3
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_rotateSpeed: 70
+      m_range: 3
+      m_knockBackPower: 1
+      m_Damage: 1
+  m_candyCaneSkillParams:
+    m_bellSkillLevelParams:
+    - m_moveType: 0
+      m_generateRate: 1
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 0
+      m_generateRate: 1
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 0
+      m_generateRate: 1
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 0
+      m_generateRate: 1
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 0
+      m_generateRate: 1
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+  m_snowBallSkillParams:
+    m_snowBallSkillLevelParams:
+    - m_moveType: 1
+      m_generateRate: 1
+      m_areaScale: 1
+      m_areaDestoryTime: 10
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 1
+      m_generateRate: 1
+      m_areaScale: 1
+      m_areaDestoryTime: 10
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 1
+      m_generateRate: 1
+      m_areaScale: 1
+      m_areaDestoryTime: 10
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 1
+      m_generateRate: 1
+      m_areaScale: 1
+      m_areaDestoryTime: 10
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1
+    - m_moveType: 1
+      m_generateRate: 1
+      m_areaScale: 1
+      m_areaDestoryTime: 10
+      m_upSpeed: 6
+      m_fallSpeed: 0.01
+      m_knockBackPower: 1
+      m_Damage: 1

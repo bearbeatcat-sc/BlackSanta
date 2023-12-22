@@ -1,7 +1,5 @@
 using Assets.Scripts;
-using Assets.Scripts.Player;
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Player.Skills;
 using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour
@@ -16,18 +14,28 @@ public abstract class BaseEnemy : MonoBehaviour
     /// 最大HP
     /// </summary>
     [SerializeField]
-    private int m_maxHp = 10;
+    protected int m_maxHp = 10;
 
     /// <summary>
     /// ノックバック
     /// </summary>
     [SerializeField]
-    private KnockBackComponent knockBack = null;
+    protected KnockBackComponent knockBack = null;
 
     /// <summary>
     /// 現在のHP
     /// </summary>
     private int m_hp = 10;
+
+    /// <summary>
+    /// 攻撃力
+    /// </summary>
+    protected int m_attack = 10;
+
+    /// <summary>
+    /// 与えるノックバックの強さ
+    /// </summary>
+    protected float m_knockBackPower = 1.0f;
 
     /// <summary>
     /// 見つけたプレイヤーの情報
@@ -85,6 +93,7 @@ public abstract class BaseEnemy : MonoBehaviour
         Initialize();
         m_findPlayer = null;
         m_findPlayer = GameObject.FindGameObjectWithTag("Player");
+        m_hp = m_maxHp;
     }
 
     // Update is called once per frame

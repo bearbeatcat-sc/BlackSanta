@@ -53,6 +53,21 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         m_flipComponent.SetInitScale(transform.localScale);
+
+        var playerParamTable = PlayerParamTable.Instance;
+        Debug.Assert(playerParamTable != null, "paramTable is null.");
+
+        var playerMovementParams = playerParamTable.m_playerMovementParams;
+        if (playerMovementParams == null)
+        {
+            return;
+        }
+
+        var moveSpeed = playerMovementParams.m_moveSpeed;
+        var lerpamount = playerMovementParams.m_lerpAmount;
+
+        m_MoveSpeed = moveSpeed;
+        m_lerpAmount = lerpamount;
     }
 
     // Update is called once per frame
