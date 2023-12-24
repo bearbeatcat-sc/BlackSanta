@@ -12,6 +12,12 @@ namespace Assets.Scripts.Enemy
         [SerializeField]
         private FlipComponent m_flipComponent = null;
 
+        /// <summary>
+        /// プレゼントBOX
+        /// </summary>
+        [SerializeField]
+        private GameObject m_presentBox = null;
+
         public override void Attack()
         {
 
@@ -19,7 +25,11 @@ namespace Assets.Scripts.Enemy
 
         public override void Death()
         {
+            // TOODO:後でアニメーションに切り替え
+            Destroy(gameObject);
 
+            if (!m_presentBox) return;
+            GameObject.Instantiate(m_presentBox, transform.position, Quaternion.identity);
         }
 
         public override void Initialize()

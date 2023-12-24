@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerParamTable
   m_EditorClassIdentifier: 
   m_playerCameraParams:
-    m_lerpAmount: 0.7
+    m_lerpAmount: 0.9
   m_playerMovementParams:
     m_moveSpeed: 10
     m_lerpAmount: 0.7

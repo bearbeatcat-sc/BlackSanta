@@ -12,6 +12,12 @@ namespace Assets.Scripts.Player.Skills
         private float m_destroyTime = 0.2f;
 
         /// <summary>
+        /// フリップコンポーネント
+        /// </summary>
+        [SerializeField]
+        private FlipComponent m_flipComponent = null;
+
+        /// <summary>
         /// タイマー
         /// </summary>
         private TimerComponent m_timer = null;
@@ -46,6 +52,17 @@ namespace Assets.Scripts.Player.Skills
         }
 
         /// <summary>
+        /// 反転
+        /// </summary>
+        /// <param name="isLeft">左向きか</param>
+        public void Flip(bool isLeft)
+        {
+            if (!m_flipComponent) return;
+            m_flipComponent.SetInitScale(transform.localScale);
+            m_flipComponent.Flip(isLeft);
+        }
+
+        /// <summary>
         /// ダメージの設定
         /// </summary>
         /// <param name="damage">セットするダメージ</param>
@@ -74,6 +91,7 @@ namespace Assets.Scripts.Player.Skills
         // Update is called once per frame
         void Update()
         {
+            m_flipComponent.SetInitScale(transform.localScale);
             m_timer.UpdateTime();
             if (m_timer.IsTime())
             {

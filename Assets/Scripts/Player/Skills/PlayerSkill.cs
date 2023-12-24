@@ -61,16 +61,16 @@ namespace Assets.Scripts.Player.Skills
             var skillIndex = (int)skillType;
             var skill = m_skill[skillIndex];
 
-            skill.Initialize();
             skill.LevelUp();
+            skill.Initialize();
             skill.SetPlayerSkill(this);
         }
 
         private void Start()
         {
             m_mainSkill.SetPlayerSkill(this);
-            m_mainSkill.Initialize();
             m_mainSkill.LevelUp();
+            m_mainSkill.Initialize();
 
             AddSkill(SkillType.Bell);
             AddSkill(SkillType.CandyCane);

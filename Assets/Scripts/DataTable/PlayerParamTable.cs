@@ -60,7 +60,7 @@ public class PlayerCameraParams
     /// •âŠ®ŒW”
     /// </summary>
     [Header("•âŠ®ŒW”")]
-    [Range(1.0f, 100.0f)]
+    [Range(0.0f, 1.0f)]
     public float m_lerpAmount = 0.7f;
 }
 

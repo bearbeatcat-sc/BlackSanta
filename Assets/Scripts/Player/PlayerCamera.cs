@@ -20,10 +20,28 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField]
     private GameObject m_playerObject = null;
 
+    /// <summary>
+    /// プレイヤーオブジェクトの設定
+    /// </summary>
+    /// <param name="player">プレイヤー</param>
+    public void SetPlayer(GameObject player)
+    {
+        m_playerObject = player;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        var playerParamTable = PlayerParamTable.Instance;
+        Debug.Assert(playerParamTable != null, "paramTable is null.");
+
+        var playerCameraParams  = playerParamTable.m_playerCameraParams;
+        if (playerCameraParams == null)
+        {
+            return;
+        }
+
+        m_lerpAmount = playerCameraParams.m_lerpAmount;
     }
 
     // Update is called once per frame

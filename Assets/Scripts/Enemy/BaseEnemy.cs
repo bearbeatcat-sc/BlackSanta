@@ -69,6 +69,7 @@ public abstract class BaseEnemy : MonoBehaviour
     public void Damage(int attack)
     {
         m_hp -= attack;
+        Debug.Log($"{nameof(BaseEnemy)}.{nameof(Damage)} HP: " + m_hp);
 
         if(m_hp <= 0)
         {
@@ -92,13 +93,17 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         Initialize();
         m_findPlayer = null;
-        m_findPlayer = GameObject.FindGameObjectWithTag("Player");
         m_hp = m_maxHp;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        if(m_findPlayer == null)
+        {
+            m_findPlayer = GameObject.FindGameObjectWithTag("Player");
+        }
+
         Move();
         Attack();
     }

@@ -35,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 8475315292145220103}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4825242848733958490
 MonoBehaviour:
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_maxHp: 10
   knockBack: {fileID: 5972115335769907808}
   m_flipComponent: {fileID: 6460876817358523954}
+  m_presentBox: {fileID: 6846777000072105138, guid: 22693890873869b488a5152bdd229ffc, type: 3}
 --- !u!114 &6460876817358523954
 MonoBehaviour:
   m_ObjectHideFlags: 0

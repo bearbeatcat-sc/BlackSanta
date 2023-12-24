@@ -46,6 +46,18 @@ namespace Assets.Scripts.Player.Skills
             m_timerComponent = new TimerComponent();
             m_timerComponent.ClearTime();
             m_timerComponent.SetTargetTime(m_whipRate);
+
+            var playerSkillsParamTable =  PlayerSkillsParamTable.Instance;
+            if (!playerSkillsParamTable)
+            {
+                return;
+            }
+
+            var whipSkillParams = playerSkillsParamTable.m_whipSkillParams;
+            var param = whipSkillParams.m_whipSkillLevelParams[m_currentLevel - 1];
+            m_knockBackPower = param.m_knockBackPower;
+            m_damage = param.m_Damage;
+            m_whipRate = param.m_whipRate;
         }
 
         public override void StatusUp()
@@ -63,10 +75,11 @@ namespace Assets.Scripts.Player.Skills
             var moveVec = m_playerSkill.GetPlayerMoveVec();
             var playerPos = m_playerSkill.GetPlayerPosition();
 
-           var instnace =  GameObject.Instantiate(m_whipColliderObject, playerPos + moveVec, Quaternion.identity);
+           var instnace =  GameObject.Instantiate(m_whipColliderObject, playerPos + moveVec * 2.0f, Quaternion.identity);
            var collider = instnace.GetComponent<WhipCollider>();
-            collider.SetDamage(GetDamage());
-            collider.SetKnockBackPower(GetKnockBackPower());
+           collider.SetDamage(GetDamage());
+           collider.SetKnockBackPower(GetKnockBackPower());
+           collider.Flip(moveVec.x < 0.0f);
         }
 
         /// <summary>
