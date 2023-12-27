@@ -62,7 +62,7 @@ MonoBehaviour:
     - m_knockBackPower: 1
       m_Damage: 0
       m_moveType: 0
-      m_generateRate: 0.5
+      m_generateRate: 0.2
       m_upSpeed: 0
       m_fallSpeed: 0
     - m_knockBackPower: 1

@@ -27,7 +27,7 @@ public class GameSystem : MonoBehaviour
     /// プレイヤーUI
     /// </summary>
     [SerializeField]
-    private PlayerUI m_playerUI = null;
+    private PlayerUI m_playerUI = null;  
 
     /// <summary>
     /// スキル選択システム
@@ -212,6 +212,7 @@ public class GameSystem : MonoBehaviour
                 m_context.m_context.m_playerSkillSystem = playerSkillSystem; 
                 m_context.m_context.m_playerCamera.SetPlayer(playerInstance);
                 m_context.m_context.m_skillSelectSystem.SetPlayerSkill(playerSkillSystem);
+                playerExpSystem.Initialize(m_context.m_context.m_playerUI);
             }
 
             public override void Exit()

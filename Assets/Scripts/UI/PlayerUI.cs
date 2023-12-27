@@ -20,4 +20,13 @@ public class PlayerUI : MonoBehaviour
 
         m_expUI.ChangeExpRatio(ratio);
     }
+
+    /// <summary>
+    /// EXP‚Ì’Ç‰Á
+    /// </summary>
+    public void AddExp()
+    {
+        if(!m_expUI) return;
+        m_expUI.AddExp();
+    }
 }

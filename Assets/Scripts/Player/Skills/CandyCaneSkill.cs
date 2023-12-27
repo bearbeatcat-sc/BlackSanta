@@ -127,7 +127,7 @@ namespace Assets.Scripts.Player.Skills
             var candyCaneSkilLevelParams = candyCaneSkillParams.m_candyCaneSkillLevelParams;
             if (candyCaneSkilLevelParams.Length <= 0 || candyCaneSkilLevelParams == null) return;
 
-            var levelParam = candyCaneSkilLevelParams[m_currentLevel];
+            var levelParam = candyCaneSkilLevelParams[m_currentLevel - 1];
             if (levelParam == null) return;
 
             m_knockBackPower = levelParam.m_knockBackPower;

@@ -48,6 +48,12 @@ public class PlayerParamTable : ScriptableObject
     /// </summary>
     [Header("プレイヤー移動パラメータ")]
     public PlayerMovementParams m_playerMovementParams;
+
+    /// <summary>
+    /// プレイヤーレベルアップテーブル
+    /// </summary>
+    [Header("プレイヤーレベルアップテーブル")]
+    public PlayerLevelUpParams m_playerLevelUpParams;
 }
 
 /// <summary>
@@ -62,6 +68,20 @@ public class PlayerCameraParams
     [Header("補完係数")]
     [Range(0.0f, 1.0f)]
     public float m_lerpAmount = 0.7f;
+}
+
+
+/// <summary>
+/// プレイヤーLVUPのパラメータ
+/// </summary>
+[System.Serializable]
+public class PlayerLevelUpParams
+{
+    /// <summary>
+    /// プレイヤーレベルアップテーブル
+    /// </summary>
+    [Header("プレイヤーレベルアップテーブル")]
+    public int[] m_levelUPTable = new int[5];
 }
 
 /// <summary>

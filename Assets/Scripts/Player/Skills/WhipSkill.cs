@@ -70,7 +70,7 @@ namespace Assets.Scripts.Player.Skills
             var whipSkilLevelParams = whipSkillParams.m_whipSkillLevelParams;
             if (whipSkilLevelParams.Length <= 0 || whipSkilLevelParams == null) return;
 
-            var levelParam = whipSkilLevelParams[m_currentLevel];
+            var levelParam = whipSkilLevelParams[m_currentLevel - 1];
             if(levelParam == null) return;
 
             m_knockBackPower = levelParam.m_knockBackPower;

@@ -140,7 +140,7 @@ namespace Assets.Scripts.Player.Skills
             var snowBallSkilLevelParams = snowSkillParams.m_snowBallSkillLevelParams;
             if (snowBallSkilLevelParams.Length <= 0 || snowBallSkilLevelParams == null) return;
 
-            var levelParam = snowBallSkilLevelParams[m_currentLevel];
+            var levelParam = snowBallSkilLevelParams[m_currentLevel - 1];
             if (levelParam == null) return;
 
             m_knockBackPower = levelParam.m_knockBackPower;

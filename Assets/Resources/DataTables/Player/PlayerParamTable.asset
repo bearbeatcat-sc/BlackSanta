@@ -17,3 +17,5 @@ MonoBehaviour:
   m_playerMovementParams:
     m_moveSpeed: 10
     m_lerpAmount: 0.7
+  m_playerLevelUpParams:
+    m_levelUPTable: 0000000001000000020000000300000004000000

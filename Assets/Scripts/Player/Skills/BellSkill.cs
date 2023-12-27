@@ -85,7 +85,7 @@ namespace Assets.Scripts.Player.Skills
             var bellSkilLevelParams = bellSkillParams.m_bellSkillLevelParams;
             if (bellSkilLevelParams.Length <= 0 || bellSkilLevelParams == null) return;
 
-            var levelParam = bellSkilLevelParams[m_currentLevel];
+            var levelParam = bellSkilLevelParams[m_currentLevel - 1];
             if (levelParam == null) return;
 
             m_knockBackPower = levelParam.m_knockBackPower;

@@ -33,7 +33,13 @@ public class House : MonoBehaviour
         if (collision.tag != "Player") return;
         if (!m_timer.IsTime()) return;
 
+        var playerExpSystem = collision.GetComponent<PlayerExpSystem>();
+        if (!playerExpSystem) return;
+
+        if (!playerExpSystem.IsGetSkill()) return;
+
         m_gameSystem.StartSkillSelect();
         m_timer.ClearTime();
+        playerExpSystem.StatuUp();
     }
 }

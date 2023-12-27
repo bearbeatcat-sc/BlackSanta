@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_image: {fileID: 6044129926710423459}
   m_skillSprites:
-  - {fileID: 21300000, guid: 3ce8aafc18ec6b2459c01e3c642ff576, type: 3}
+  - {fileID: 21300000, guid: a19c393e97f6c2c4f8e06205c2969378, type: 3}
   - {fileID: 21300000, guid: c20ccaebe67fbaa4da6d2b8cdf244794, type: 3}
   - {fileID: 21300000, guid: daea0cd3070e41c4796f0f37cf9371fc, type: 3}
   - {fileID: 21300000, guid: 6c40a1f473dc0f943a79512a9e8234c6, type: 3}
