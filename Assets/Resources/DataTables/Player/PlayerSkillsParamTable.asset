@@ -52,37 +52,37 @@ MonoBehaviour:
       m_rotateSpeed: 70
       m_range: 3
   m_candyCaneSkillParams:
-    m_bellSkillLevelParams:
+    m_candyCaneSkillLevelParams:
     - m_knockBackPower: 1
-      m_Damage: 1
+      m_Damage: 0
       m_moveType: 0
-      m_generateRate: 1
-      m_upSpeed: 6
-      m_fallSpeed: 0.01
+      m_generateRate: 0.5
+      m_upSpeed: 0
+      m_fallSpeed: 0
     - m_knockBackPower: 1
-      m_Damage: 1
+      m_Damage: 0
       m_moveType: 0
-      m_generateRate: 1
-      m_upSpeed: 6
-      m_fallSpeed: 0.01
+      m_generateRate: 0.5
+      m_upSpeed: 0
+      m_fallSpeed: 0
     - m_knockBackPower: 1
-      m_Damage: 1
+      m_Damage: 0
       m_moveType: 0
-      m_generateRate: 1
-      m_upSpeed: 6
-      m_fallSpeed: 0.01
+      m_generateRate: 0.5
+      m_upSpeed: 0
+      m_fallSpeed: 0
     - m_knockBackPower: 1
-      m_Damage: 1
+      m_Damage: 0
       m_moveType: 0
-      m_generateRate: 1
-      m_upSpeed: 6
-      m_fallSpeed: 0.01
+      m_generateRate: 0.5
+      m_upSpeed: 0
+      m_fallSpeed: 0
     - m_knockBackPower: 1
-      m_Damage: 1
+      m_Damage: 0
       m_moveType: 0
-      m_generateRate: 1
-      m_upSpeed: 6
-      m_fallSpeed: 0.01
+      m_generateRate: 0.5
+      m_upSpeed: 0
+      m_fallSpeed: 0
   m_snowBallSkillParams:
     m_snowBallSkillLevelParams:
     - m_knockBackPower: 1

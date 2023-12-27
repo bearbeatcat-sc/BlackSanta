@@ -118,7 +118,24 @@ namespace Assets.Scripts.Player.Skills
 
         public override void StatusUp()
         {
+            var playerSkillParamTable = PlayerSkillsParamTable.Instance;
+            if (!playerSkillParamTable) return;
 
+            var candyCaneSkillParams = playerSkillParamTable.m_candyCaneSkillParams;
+            if (candyCaneSkillParams == null) return;
+
+            var candyCaneSkilLevelParams = candyCaneSkillParams.m_candyCaneSkillLevelParams;
+            if (candyCaneSkilLevelParams.Length <= 0 || candyCaneSkilLevelParams == null) return;
+
+            var levelParam = candyCaneSkilLevelParams[m_currentLevel];
+            if (levelParam == null) return;
+
+            m_knockBackPower = levelParam.m_knockBackPower;
+            m_damage = levelParam.m_Damage;
+            m_generateRate = levelParam.m_generateRate;
+            m_moveType = levelParam.m_moveType;
+            m_upSpeed = levelParam.m_upSpeed;
+            m_fallSpeed = levelParam.m_fallSpeed;
         }
     }
 }

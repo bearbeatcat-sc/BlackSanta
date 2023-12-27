@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1740177020713971602
 SpriteRenderer:
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540a7a321189ecb459bcadb5548af2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_snowArea: {fileID: 2028016586404586389, guid: 4c53725ce368e9a4d9e7301e5c4bf923, type: 3}
+  m_snowArea: {fileID: 7464670482389463934, guid: 4c53725ce368e9a4d9e7301e5c4bf923, type: 3}
   m_destroyTime: 0.2
   m_fallRangeX: 4
   m_flipComponent: {fileID: 6809633654082645311}

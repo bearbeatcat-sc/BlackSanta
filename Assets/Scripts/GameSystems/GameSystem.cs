@@ -1,3 +1,5 @@
+using Assets.Scripts.GameSystems;
+using Assets.Scripts.Player.Skills;
 using System;
 using UnityEngine;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
@@ -28,10 +30,10 @@ public class GameSystem : MonoBehaviour
     private PlayerUI m_playerUI = null;
 
     /// <summary>
-    /// システムUI
+    /// スキル選択システム
     /// </summary>
     [SerializeField]
-    private SystemUI m_sytemUI = null;
+    private SkillSelectSystem m_skillSelectSystem = null;
 
     /// <summary>
     /// プレイヤーカメラ
@@ -43,6 +45,11 @@ public class GameSystem : MonoBehaviour
     /// プレイヤー経験値システム
     /// </summary>
     private PlayerExpSystem m_playerExpSystem = null;
+
+    /// <summary>
+    /// プレイヤースキルシステム
+    /// </summary>
+    private PlayerSkill m_playerSkillSystem = null;
 
     /// <summary>
     /// ゲームステートマシン
@@ -67,6 +74,21 @@ public class GameSystem : MonoBehaviour
     void Update()
     {
         m_gameStateMachine.Update();
+    }
+
+    /// <summary>
+    /// スキル選択の開始
+    /// </summary>
+    public void StartSkillSelect()
+    {
+        if(m_gameStateMachine.GetCurrentStateIndex() == (int)GameStateType.Play)
+        {
+            var state = m_gameStateMachine.GetCurrentState();
+            if(state is GamePlayState gamePlayState)
+            {
+                gamePlayState.StartSkillSelect();
+            }
+        }
     }
 
     /// <summary>
@@ -140,6 +162,14 @@ public class GameSystem : MonoBehaviour
             m_gameStateMachine.AddGameState((int)GamePlayStateType.SkillSelect, skillSelectState);
         }
 
+        /// <summary>
+        /// スキル選択の開始
+        /// </summary>
+        public void StartSkillSelect()
+        {
+            m_gameStateMachine.ChangeState((int)GamePlayStateType.SkillSelect);
+        }
+
         public override void Enter()
         {
             m_gameStateMachine.ChangeState((int)GamePlayStateType.Start);
@@ -175,8 +205,13 @@ public class GameSystem : MonoBehaviour
                 var playerExpSystem =  playerInstance.GetComponent<PlayerExpSystem>();
                 if (!playerExpSystem) return;
 
+                var playerSkillSystem = playerInstance.GetComponent<PlayerSkill>();
+                if(!playerSkillSystem) return;
+
                 m_context.m_context.m_playerExpSystem = playerExpSystem;
+                m_context.m_context.m_playerSkillSystem = playerSkillSystem; 
                 m_context.m_context.m_playerCamera.SetPlayer(playerInstance);
+                m_context.m_context.m_skillSelectSystem.SetPlayerSkill(playerSkillSystem);
             }
 
             public override void Exit()
@@ -228,14 +263,20 @@ public class GameSystem : MonoBehaviour
 
             public override void Enter()
             {
+                m_context.m_context.m_skillSelectSystem.StartSelectSkill();
             }
 
             public override void Exit()
             {
+                m_context.m_context.m_skillSelectSystem.EndSelectSkill();
             }
 
             public override void Update()
             {
+                if (m_context.m_context.m_skillSelectSystem.UpdateSkillSelect())
+                {
+                    m_context.m_gameStateMachine.ChangeState((int)GamePlayStateType.Playing);
+                }
             }
         }
     }
@@ -297,6 +338,26 @@ public class GameStateMachine<Type>
 
         var currentState = m_gameStates[m_currentGameState];
         currentState.Update();
+    }
+
+    /// <summary>
+    /// 現在のステートの取得
+    /// </summary>
+    /// <returns>現在のステート</returns>
+    public GameState<Type> GetCurrentState()
+    {
+        if (m_currentGameState < 0) return null;
+
+        return m_gameStates[m_currentGameState];
+    }
+
+    /// <summary>
+    /// 現在のステートのインデックスを取得
+    /// </summary>
+    /// <returns>現在のステートのインデックス</returns>
+    public int GetCurrentStateIndex()
+    {
+        return m_currentGameState;
     }
 
     /// <summary>

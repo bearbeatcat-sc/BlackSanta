@@ -163,6 +163,7 @@ GameObject:
   - component: {fileID: 8337796010767961074}
   - component: {fileID: 5361891940369525847}
   - component: {fileID: 6260766370884628140}
+  - component: {fileID: 2826906511200132739}
   m_Layer: 5
   m_Name: Skill
   m_TagString: Untagged
@@ -177,7 +178,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6496459444123551456}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -219,10 +220,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_image: {fileID: 6044129926710423459}
   m_skillSprites:
-  - {fileID: 21300000, guid: 6c40a1f473dc0f943a79512a9e8234c6, type: 3}
+  - {fileID: 21300000, guid: 3ce8aafc18ec6b2459c01e3c642ff576, type: 3}
   - {fileID: 21300000, guid: c20ccaebe67fbaa4da6d2b8cdf244794, type: 3}
   - {fileID: 21300000, guid: daea0cd3070e41c4796f0f37cf9371fc, type: 3}
-  - {fileID: 21300000, guid: 3ce8aafc18ec6b2459c01e3c642ff576, type: 3}
+  - {fileID: 21300000, guid: 6c40a1f473dc0f943a79512a9e8234c6, type: 3}
+  m_animator: {fileID: 2826906511200132739}
+--- !u!95 &2826906511200132739
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6496459444123551456}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d6f27a0179ce97458a753b406726ea2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &3257755236054583249
 PrefabInstance:
   m_ObjectHideFlags: 0

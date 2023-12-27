@@ -156,7 +156,7 @@ public class CandyCaneSkillParams
     /// キャンディケインのレベルパラメータリスト
     /// </summary>
     [Header("キャンディケインのレベル別のパラメータリスト")]
-    public CandyCaneSkillLevelParam[] m_bellSkillLevelParams;
+    public CandyCaneSkillLevelParam[] m_candyCaneSkillLevelParams;
 }
 
 /// <summary>

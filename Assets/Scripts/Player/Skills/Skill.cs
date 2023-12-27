@@ -59,6 +59,7 @@ namespace Assets.Scripts.Player.Skills
         public void LevelUp()
         {
             m_currentLevel = Mathf.Clamp(m_currentLevel + 1, 1, m_MaxLevel);
+            Debug.Log($"{nameof(Skill)}.{nameof(LevelUp)}. LevelUP! : [{nameof(m_currentLevel)} : {m_currentLevel}]");
             StatusUp();
         }
 

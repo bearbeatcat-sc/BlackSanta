@@ -9,9 +9,11 @@ namespace Assets.Scripts.Player.Skills
         /// </summary>
         public enum SkillType
         {
+            Whip,
             Bell,
             CandyCane,
-            SnowBall,
+            SnowBall,            
+            Max,
         }
 
         /// <summary>

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8381972838771530710}
   - component: {fileID: 1354065753734305791}
   - component: {fileID: 3780756484768046694}
+  - component: {fileID: 6432987729240145868}
   m_Layer: 0
   m_Name: WhipCollider
   m_TagString: Attack
@@ -146,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_destroyTime: 0.1
   m_flipComponent: {fileID: 3780756484768046694}
+  m_animator: {fileID: 6432987729240145868}
 --- !u!114 &3780756484768046694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +160,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a73f4cc581e9d0429383cf0bd08bc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6432987729240145868
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198544320192709491}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f79a54a3a9083f447961c621c14f55a7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

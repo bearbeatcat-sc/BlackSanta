@@ -18,9 +18,15 @@ namespace Assets.Scripts.Player.Skills
         private FlipComponent m_flipComponent = null;
 
         /// <summary>
+        /// アニメーター
+        /// </summary>
+        [SerializeField]
+        private Animator m_animator = null;
+
+        /// <summary>
         /// タイマー
         /// </summary>
-        private TimerComponent m_timer = null;
+        private TimerComponent m_timer = null;        
 
         /// <summary>
         /// ダメージ量
@@ -60,6 +66,15 @@ namespace Assets.Scripts.Player.Skills
             if (!m_flipComponent) return;
             m_flipComponent.SetInitScale(transform.localScale);
             m_flipComponent.Flip(isLeft);
+
+            if(isLeft)
+            {
+                m_animator.Play("LeftGenerateWhipColliderAnimation");
+            }
+            else
+            {
+                m_animator.Play("RightGenerateWhipColliderAnimation");
+            }
         }
 
         /// <summary>

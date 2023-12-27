@@ -15,7 +15,6 @@ namespace Assets.Scripts.Player.Skills
         [SerializeField]
         private float m_whipRate = 1.0f;
 
-
         /// <summary>
         /// 鞭の当たり判定のオブジェクト
         /// </summary>
@@ -62,7 +61,21 @@ namespace Assets.Scripts.Player.Skills
 
         public override void StatusUp()
         {
+            var playerSkillParamTable = PlayerSkillsParamTable.Instance;
+            if (!playerSkillParamTable) return;
 
+            var whipSkillParams = playerSkillParamTable.m_whipSkillParams;
+            if (whipSkillParams == null) return;
+
+            var whipSkilLevelParams = whipSkillParams.m_whipSkillLevelParams;
+            if (whipSkilLevelParams.Length <= 0 || whipSkilLevelParams == null) return;
+
+            var levelParam = whipSkilLevelParams[m_currentLevel];
+            if(levelParam == null) return;
+
+            m_knockBackPower = levelParam.m_knockBackPower;
+            m_damage = levelParam.m_Damage;
+            m_whipRate = levelParam.m_whipRate;          
         }
 
         /// <summary>

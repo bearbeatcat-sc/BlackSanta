@@ -57,7 +57,7 @@ namespace Assets.Scripts.Player.Skills
         /// エリアの生存時間
         /// </summary>
         [SerializeField]
-        private float m_areDestroyTime = 10.0f;
+        private float m_areaDestroyTime = 10.0f;
 
         /// <summary>
         /// タイマー
@@ -121,7 +121,7 @@ namespace Assets.Scripts.Player.Skills
 
             var instnace = GameObject.Instantiate(m_snowBallObject, playerPos + moveVec, Quaternion.identity);
             var snowBallObject = instnace.GetComponent<SnowBall>();
-            snowBallObject.Initialize(m_moveType, moveVec, m_moveType == MoveType.Drop ? m_upSpeed : 0.0f, m_fallSpeed, GetDamage(), GetKnockBackPower(), m_areDestroyTime, m_areaScale);
+            snowBallObject.Initialize(m_moveType, moveVec, m_moveType == MoveType.Drop ? m_upSpeed : 0.0f, m_fallSpeed, GetDamage(), GetKnockBackPower(), m_areaDestroyTime, m_areaScale);
         }
 
         public float GetKnockBackPower()
@@ -131,7 +131,26 @@ namespace Assets.Scripts.Player.Skills
 
         public override void StatusUp()
         {
+            var playerSkillParamTable = PlayerSkillsParamTable.Instance;
+            if (!playerSkillParamTable) return;
 
+            var snowSkillParams = playerSkillParamTable.m_snowBallSkillParams;
+            if (snowSkillParams == null) return;
+
+            var snowBallSkilLevelParams = snowSkillParams.m_snowBallSkillLevelParams;
+            if (snowBallSkilLevelParams.Length <= 0 || snowBallSkilLevelParams == null) return;
+
+            var levelParam = snowBallSkilLevelParams[m_currentLevel];
+            if (levelParam == null) return;
+
+            m_knockBackPower = levelParam.m_knockBackPower;
+            m_damage = levelParam.m_Damage;
+            m_areaScale = levelParam.m_areaScale;
+            m_generateRate = levelParam.m_generateRate;
+            m_moveType = levelParam.m_moveType;
+            m_upSpeed = levelParam.m_upSpeed;
+            m_fallSpeed = levelParam.m_fallSpeed;
+            m_areaDestroyTime = levelParam.m_areaDestoryTime;
         }
     }
 }

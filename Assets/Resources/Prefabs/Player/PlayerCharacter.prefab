@@ -41,7 +41,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2079802900836137423
 MonoBehaviour:
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_mainSkill: {fileID: 6095215509837369768}
   m_playerMovement: {fileID: 2079802900836137423}
   m_skill:
+  - {fileID: 6095215509837369768}
   - {fileID: 5378246760220876489}
   - {fileID: 3383927305096874643}
   - {fileID: 8230248531304519159}

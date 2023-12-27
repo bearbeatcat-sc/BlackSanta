@@ -23,6 +23,11 @@ namespace Assets.Scripts.Player.Skills
         private GameObject m_bellObject = null;
 
         /// <summary>
+        /// ベルのインスタンス
+        /// </summary>
+        private GameObject m_bellInstance = null;
+
+        /// <summary>
         /// ベルオブジェクトのスクリプト
         /// </summary>
         private BellObject m_bellObjectScript = null;
@@ -58,8 +63,11 @@ namespace Assets.Scripts.Player.Skills
 
         public override void Initialize()
         {
-            var instance = GameObject.Instantiate(m_bellObject);
-            m_bellObjectScript = instance.GetComponent<BellObject>();
+            if (!m_bellInstance)
+            {
+                m_bellInstance = GameObject.Instantiate(m_bellObject);
+                m_bellObjectScript = m_bellInstance.GetComponent<BellObject>();
+            }
 
             m_bellObjectScript.SetDamage(GetDamage());
             m_bellObjectScript.SetKnockBackPower(GetKnockBackPower());
@@ -68,7 +76,22 @@ namespace Assets.Scripts.Player.Skills
 
         public override void StatusUp()
         {
+            var playerSkillParamTable = PlayerSkillsParamTable.Instance;
+            if (!playerSkillParamTable) return;
 
+            var bellSkillParams = playerSkillParamTable.m_bellSkillParams;
+            if (bellSkillParams == null) return;
+
+            var bellSkilLevelParams = bellSkillParams.m_bellSkillLevelParams;
+            if (bellSkilLevelParams.Length <= 0 || bellSkilLevelParams == null) return;
+
+            var levelParam = bellSkilLevelParams[m_currentLevel];
+            if (levelParam == null) return;
+
+            m_knockBackPower = levelParam.m_knockBackPower;
+            m_damage = levelParam.m_Damage;
+            m_range = levelParam.m_range;
+            m_rotateSpeed = levelParam.m_rotateSpeed;            
         }
 
 
