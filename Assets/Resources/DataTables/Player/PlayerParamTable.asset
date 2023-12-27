@@ -15,7 +15,7 @@ MonoBehaviour:
   m_playerCameraParams:
     m_lerpAmount: 0.9
   m_playerMovementParams:
-    m_moveSpeed: 10
+    m_moveSpeed: 3
     m_lerpAmount: 0.7
   m_playerLevelUpParams:
-    m_levelUPTable: 0000000001000000020000000300000004000000
+    m_levelUPTable: 00000000050000000a0000000f00000019000000
