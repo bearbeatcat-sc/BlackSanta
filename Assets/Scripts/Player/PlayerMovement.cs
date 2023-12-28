@@ -48,6 +48,15 @@ public class PlayerMovement : MonoBehaviour
     {
         return m_isLeft ? Vector2.left : Vector2.right;
     }
+    
+    /// <summary>
+    /// ターゲット位置の設定
+    /// </summary>
+    /// <param name="targetPosition">ターゲット位置</param>
+    public void SetTargetPosition(Vector2 targetPosition)
+    {
+        m_targetPosition = targetPosition;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
 
         transform.position = Vector3.Lerp(transform.position, new Vector3(m_targetPosition.x, m_targetPosition.y, 0.0f), m_lerpAmount);
-    }
+    }    
 
     private void Move()
     {

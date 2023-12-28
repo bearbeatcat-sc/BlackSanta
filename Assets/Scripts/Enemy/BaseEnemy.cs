@@ -5,6 +5,14 @@ using UnityEngine;
 public abstract class BaseEnemy : MonoBehaviour
 {
     /// <summary>
+    /// エネミーの種類
+    /// </summary>
+    public enum EnemyType
+    {
+        Robot,
+    }
+
+    /// <summary>
     /// 移動速度
     /// </summary>
     [SerializeField]
@@ -122,6 +130,21 @@ public abstract class BaseEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Player")
+        {
+            var playerHP = collision.gameObject.GetComponent<PlayerHP>();
+            if(!playerHP) return;
+
+            var currentPos = transform.position;
+            var playerPos = collision.gameObject.transform.position;
+            var vec = playerPos - currentPos;
+            vec.z = 0;
+            vec.Normalize();
+
+            playerHP.Damage(m_attack, vec, 10.0f);
+            return;
+        }
+
         // 攻撃判定
         if(collision.tag == "Attack")
         {

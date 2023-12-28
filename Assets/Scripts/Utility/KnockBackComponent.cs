@@ -10,22 +10,22 @@ namespace Assets.Scripts
     public class KnockBackComponent : MonoBehaviour
     {
         [SerializeField]
-        private float m_knockBackResistance = 1.0f;
+        protected float m_knockBackResistance = 1.0f;
 
         /// <summary>
         /// ノックバックする力
         /// </summary>
-        private float m_knockBackPower = 1.0f;
+        protected float m_knockBackPower = 1.0f;
 
         /// <summary>
         /// ノックバックのベクトル
         /// </summary>
-        private Vector3 m_knockBackVelocity = Vector2.zero;
+        protected Vector3 m_knockBackVelocity = Vector2.zero;
 
         /// <summary>
         /// ノックバックしているか
         /// </summary>
-        private bool m_isKnockBack = false;
+        protected bool m_isKnockBack = false;
 
         /// <summary>
         /// ノックバックの設定
@@ -49,7 +49,7 @@ namespace Assets.Scripts
         /// <summary>
         /// ノックバック
         /// </summary>
-        private void KnockBack()
+        protected virtual void KnockBack()
         {
             transform.position += m_knockBackVelocity * m_knockBackPower * Time.deltaTime;
             m_knockBackPower -= m_knockBackResistance * Time.deltaTime;

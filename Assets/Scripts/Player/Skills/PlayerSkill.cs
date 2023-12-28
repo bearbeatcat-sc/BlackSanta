@@ -73,10 +73,6 @@ namespace Assets.Scripts.Player.Skills
             m_mainSkill.SetPlayerSkill(this);
             m_mainSkill.LevelUp();
             m_mainSkill.Initialize();
-
-            AddSkill(SkillType.Bell);
-            AddSkill(SkillType.CandyCane);
-            AddSkill(SkillType.SnowBall);
         }
 
         // Update is called once per frame
