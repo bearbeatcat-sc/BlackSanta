@@ -1,29 +1,3 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.Utility
-{
-    public class PlayerKnockBackComponent : KnockBackComponent
-    {
-        /// <summary>
-        /// プレイヤー移動
-        /// </summary>
-        [SerializeField]
-        private PlayerMovement m_playerMovement = null;
-
-        protected override void KnockBack()
-        {
-            if (!m_playerMovement) return;
-
-            var pos = transform.position + m_knockBackVelocity * m_knockBackPower * Time.deltaTime;            
-            m_knockBackPower -= m_knockBackResistance * Time.deltaTime;
-
-            if (m_knockBackPower <= 0.0f)
-            {
-                m_isKnockBack = false;
-            }
-
-            transform.position = pos;
-            m_playerMovement.SetTargetPosition(pos);
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6efe0424264e5197cd9abf694ee51651ec786e0e619c9cb79057c46461f80bc2
+size 790

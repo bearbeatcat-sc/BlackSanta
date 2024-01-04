@@ -1,12 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!1045 &1
-EditorBuildSettings:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Resources/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects:
-    com.unity.input.settings: {fileID: 11400000, guid: bd49193fd76a2084f90c78faa47306ee, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:8237f551d2be29a8b021ad34604aa899e019eb47a729130e9e2f235ded939ee6
+size 362

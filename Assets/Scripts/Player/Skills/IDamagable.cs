@@ -1,23 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assets.Scripts.Player.Skills
-{
-    public interface IDamagable
-    {
-        /// <summary>
-        /// ダメージの取得
-        /// </summary>
-        /// <returns>ダメージ</returns>
-        int GetDamage();
-
-        /// <summary>
-        /// ノックバック力の取得
-        /// </summary>
-        /// <returns>ノックバック力</returns>
-        float GetKnockBackPower();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fe1d426f901eb3f211295dca9923605db60f212fafc4e9b0b01676a1c999cf3a
+size 532
