@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/DataTable/EnemyParamsTable.cs" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/GameSystems/GameSystem.cs" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/Assets/TutorialUI.cs" charset="windows-31j" />
+    <file url="PROJECT" charset="windows-31j" />
+  </component>
+</project>
